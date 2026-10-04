@@ -1,0 +1,1 @@
+{"name":"oasys-live-console","private":true,"type":"module","scripts":{"build":"esbuild src/live.js --bundle --minify --format=esm --outfile=static/live.js"},"dependencies":{"three":"0.180.0"},"devDependencies":{"esbuild":"0.25.10"}}

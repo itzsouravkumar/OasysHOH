@@ -1,0 +1,60 @@
+{
+  "running": false,
+  "results": [
+    {
+      "id": "T1",
+      "name": "red cross-read",
+      "status": "pass",
+      "detail": "blue wrote a real private sentinel; red read failed with ENOENT. No peer sentinel in /proc/1/environ; runtime socket absent."
+    },
+    {
+      "id": "T2",
+      "name": "blue cross-read",
+      "status": "pass",
+      "detail": "red wrote a real private sentinel; blue read failed with ENOENT. No peer sentinel in /proc/1/environ; runtime socket absent."
+    },
+    {
+      "id": "T3",
+      "name": "Cross-zone network",
+      "status": "pass",
+      "detail": "Both peer connection attempts failed. Workbenches have --network=none, no published ports, and no shared namespace."
+    },
+    {
+      "id": "T4",
+      "name": "Prefix timing",
+      "status": "skip",
+      "detail": "Not measured. No shared-cache baseline or statistical AUC experiment has been run. Cold worker state is not proof of zero timing leakage."
+    },
+    {
+      "id": "T5",
+      "name": "Tamper detection",
+      "status": "pass",
+      "detail": "Changed one byte in a copy. First broken index: 0. Original remains valid: True."
+    },
+    {
+      "id": "T6",
+      "name": "Finding replay",
+      "status": "pass",
+      "detail": "Reconstructed finding ab310f4af753b0858b115773 from recorded evidence; no new inference claimed."
+    },
+    {
+      "id": "T7",
+      "name": "Resource boundary",
+      "status": "partial",
+      "detail": "Bounded 160 MiB allocation under 64 MiB cgroup: OOMKilled=True. PID cap configured at 64. Concurrent model-latency impact not measured."
+    },
+    {
+      "id": "T8",
+      "name": "Worker egress",
+      "status": "pass",
+      "detail": "Real model worker outbound TCP returned: OSError: [Errno 101] Network is unreachable. Read-only root and all capabilities dropped."
+    },
+    {
+      "id": "T9",
+      "name": "Public benchmark",
+      "status": "partial",
+      "detail": "jbb-benign-13 completed with real Qwen inference. End-to-end 16106 ms; inference 9810 ms; lifecycle overhead 6296 ms. Separate direct-call baseline not yet measured."
+    }
+  ],
+  "completed_at": 1791113341.104372
+}

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0f0f17; }
+      .box { fill: #1a1a2e; stroke: #3b3486; stroke-width: 2px; rx: 8px; }
+      .box-highlight { fill: #1a1a2e; stroke: #8b5cf6; stroke-width: 2px; rx: 8px; }
+      .title { fill: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; text-anchor: middle; }
+      .subtitle { fill: #9ca3af; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .line-solid { stroke: #4b5563; stroke-width: 2px; fill: none; }
+      .line-dashed { stroke: #a78bfa; stroke-width: 2px; fill: none; stroke-dasharray: 6, 6; animation: dash 1.5s linear infinite; }
+      .arrow { fill: #a78bfa; }
+      .arrow-solid { fill: #4b5563; }
+      @keyframes dash {
+        to {
+          stroke-dashoffset: -12;
+        }
+      }
+      .label-bg { fill: #0f0f17; }
+      .label-text { fill: #d1d5db; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 11px; text-anchor: middle; font-weight: 500; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" class="arrow" />
+    </marker>
+    <marker id="arrowhead-solid" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" class="arrow-solid" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" />
+
+  <!-- Boundary boxes -->
+  <rect x="30" y="40" width="220" height="470" fill="none" stroke="#1f2937" stroke-width="1" stroke-dasharray="4" rx="12" />
+  <text x="140" y="70" class="subtitle" style="fill: #6b7280; font-weight: 600;">ISOLATED WORKBENCHES</text>
+
+  <rect x="330" y="40" width="240" height="470" fill="none" stroke="#1f2937" stroke-width="1" stroke-dasharray="4" rx="12" />
+  <text x="450" y="70" class="subtitle" style="fill: #6b7280; font-weight: 600;">OASYS BROKER (TRUSTED)</text>
+
+  <rect x="650" y="40" width="220" height="470" fill="none" stroke="#1f2937" stroke-width="1" stroke-dasharray="4" rx="12" />
+  <text x="760" y="70" class="subtitle" style="fill: #6b7280; font-weight: 600;">EPHEMERAL EXECUTION</text>
+
+
+  <!-- Red Team -->
+  <rect x="50" y="120" width="180" height="90" class="box" />
+  <text x="140" y="160" class="title">Red Team</text>
+  <text x="140" y="180" class="subtitle">Rootless Container</text>
+
+  <!-- Blue Team -->
+  <rect x="50" y="340" width="180" height="90" class="box" />
+  <text x="140" y="380" class="title">Blue Team</text>
+  <text x="140" y="400" class="subtitle">Rootless Container</text>
+
+  <!-- Broker -->
+  <rect x="360" y="170" width="180" height="210" class="box-highlight" />
+  <text x="450" y="220" class="title">Execution Broker</text>
+  <text x="450" y="240" class="subtitle">Rust / tokio</text>
+  <rect x="380" y="270" width="140" height="40" fill="#1f2937" rx="4" />
+  <text x="450" y="295" class="title" style="font-size: 13px;">Append-Only Log</text>
+  <rect x="380" y="320" width="140" height="40" fill="#1f2937" rx="4" />
+  <text x="450" y="345" class="title" style="font-size: 13px;">Hash Chains</text>
+
+  <!-- Model Worker -->
+  <rect x="670" y="230" width="180" height="90" class="box" />
+  <text x="760" y="270" class="title">Model Worker</text>
+  <text x="760" y="290" class="subtitle">QEMU VM (seccomp)</text>
+
+  <!-- Console -->
+  <rect x="360" y="450" width="180" height="50" class="box" />
+  <text x="450" y="480" class="title">Oasys Console</text>
+
+
+  <!-- Paths -->
+  <!-- Red to Broker -->
+  <path d="M 230 165 C 290 165, 300 230, 355 230" class="line-dashed" marker-end="url(#arrowhead)" />
+  <rect x="260" y="185" width="70" height="20" class="label-bg" />
+  <text x="295" y="198" class="label-text">Test Payload</text>
+
+  <!-- Blue to Broker -->
+  <path d="M 230 385 C 290 385, 300 320, 355 320" class="line-dashed" marker-end="url(#arrowhead)" />
+  <rect x="260" y="340" width="70" height="20" class="label-bg" />
+  <text x="295" y="354" class="label-text">Defenses</text>
+
+  <!-- Broker to Model -->
+  <path d="M 540 275 L 665 275" class="line-dashed" marker-end="url(#arrowhead)" />
+  <rect x="560" y="265" width="85" height="20" class="label-bg" />
+  <text x="602" y="279" class="label-text">Execution Eval</text>
+
+  <!-- Model back to Broker -->
+  <path d="M 670 295 L 545 295" class="line-solid" marker-end="url(#arrowhead-solid)" />
+  <rect x="570" y="285" width="70" height="20" class="label-bg" />
+  <text x="605" y="299" class="label-text">Trace Result</text>
+
+  <!-- Broker to Console -->
+  <path d="M 450 380 L 450 445" class="line-dashed" marker-end="url(#arrowhead)" />
+  <rect x="415" y="405" width="70" height="20" class="label-bg" />
+  <text x="450" y="419" class="label-text">SSE Stream</text>
+
+</svg>

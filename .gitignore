@@ -1,0 +1,12 @@
+.venv/
+.state/
+runs/*
+!runs/.gitkeep
+data/models/*
+!data/models/.gitkeep
+work/
+__pycache__/
+.pytest_cache/
+.DS_Store
+
+node_modules/
